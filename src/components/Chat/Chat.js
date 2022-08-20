@@ -52,7 +52,7 @@ const Chat = () => {
           Let's Talk - <span className="text-cyan-600">{room}</span>
         </h1>
       </div>
-      <ScrollToBottom className="w-[60%] mx-auto h-[70%]">
+      <ScrollToBottom className="w-full sm:w-[60%] mx-auto h-[70%]">
         <div className="w-full h-full px-4">
           {messages.map((msg,index) => (
           <div key={index} className={`${name === msg.user && "float-right"} ${msg.user === "admin" && "mx-auto"} ${msg.user !== "admin" && msg.user !== name && "float-left"} clear-both my-4 bg-[rgb(241,241,241)]/50 font-mono w-fit mx-w-[50%] rounded-md px-4 py-2`}>
@@ -62,7 +62,7 @@ const Chat = () => {
         </div>
       </ScrollToBottom>
       <div className="w-full h-[20%] flex flex-col justify-center items-center">
-        <div className="w-[60%] flex items-center justify-center rounded-md border border-[#e2e2e2]">
+        <div className="w-[95%] sm:w-[60%] flex items-center justify-center rounded-md border border-[#e2e2e2]">
           <input
             type="text"
             className="w-full px-2 py-1.5 font-mono outline-none rounded-[inherit]"

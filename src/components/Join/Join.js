@@ -15,7 +15,7 @@ const Join = () => {
     <div className="flex justify-center items-center bg-gray-800 w-full h-screen">
       <div
         onKeyDown={(e) => e.key === "Enter" ? handleJoin(e) : ""}
-        className="w-1/3 min-h-[40vh] rounded-lg flex flex-col justify-evenly items-center bg-white"
+        className="w-[90%] h-[60vh] md:w-1/2 lg:w-1/3 md:h-[40vh] rounded-lg flex flex-col justify-evenly items-center bg-white"
       >
         <h1 className="font-mono font-semibold text-xl text-cyan-600">
           Let's Talk - Join
