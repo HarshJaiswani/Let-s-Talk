@@ -3,7 +3,6 @@ import querryString from "query-string";
 import { useLocation } from "react-router-dom";
 import io from "socket.io-client";
 import ScrollToBottom from "react-scroll-to-bottom";
-import { HiPaperAirplane } from "react-icons/hi";
 
 let socket;
 
@@ -54,10 +53,24 @@ const Chat = () => {
       </div>
       <ScrollToBottom className="w-full sm:w-[60%] mx-auto h-[70%]">
         <div className="w-full h-full px-4">
-          {messages.map((msg,index) => (
-          <div key={index} className={`${name === msg.user && "float-right"} ${msg.user === "admin" && "mx-auto"} ${msg.user !== "admin" && msg.user !== name && "float-left"} clear-both my-4 bg-[rgb(241,241,241)]/50 font-mono w-fit mx-w-[50%] rounded-md px-4 py-2`}>
-            <span className={`${msg.user === name ? "text-green-500" : "text-red-500"} font-semibold`}>{msg.user} - </span> {msg.text}
-          </div>
+          {messages.map((msg, index) => (
+            <div
+              key={index}
+              className={`${name === msg.user && "float-right"} ${
+                msg.user === "admin" && "mx-auto"
+              } ${
+                msg.user !== "admin" && msg.user !== name && "float-left"
+              } clear-both my-4 bg-[rgb(241,241,241)]/50 font-mono w-fit mx-w-[50%] rounded-md px-4 py-2`}
+            >
+              <span
+                className={`${
+                  msg.user === name ? "text-green-500" : "text-red-500"
+                } font-semibold`}
+              >
+                {msg.user} -{" "}
+              </span>{" "}
+              {msg.text}
+            </div>
           ))}
         </div>
       </ScrollToBottom>
@@ -65,17 +78,21 @@ const Chat = () => {
         <div className="w-[95%] sm:w-[60%] flex items-center justify-center rounded-md border border-[#e2e2e2]">
           <input
             type="text"
-            className="w-full px-2 py-1.5 font-mono outline-none rounded-[inherit]"
+            className="focus:shadow-[0_0_0px_5px_rgb(219,234,254)] w-full px-2 py-1.5 font-mono outline-none rounded-[inherit]"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onKeyPress={(e) => (e.key === "Enter" ? sendMessage(e) : null)}
           />
-          <button
+          <span
             onClick={(e) => sendMessage(e)}
-            className="outline-none border-none px-2 py-1.5 bg-blue-100"
+            className="px-2 py-1.5 bg-blue-100"
           >
-            <HiPaperAirplane className="text-2xl text-blue-500 rotate-90" />
-          </button>
+            <img
+              className="w-[25px]"
+              src="https://img.icons8.com/external-kiranshastry-gradient-kiranshastry/64/000000/external-paper-plane-interface-kiranshastry-gradient-kiranshastry.png"
+              alt=""
+            />
+          </span>
         </div>
       </div>
     </div>
